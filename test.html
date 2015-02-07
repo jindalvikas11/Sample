@@ -221,6 +221,10 @@
                 box-shadow: 10px 0 10px -10px #333 inset;
                 -webkit-transform : translateX(270px);
             }
+
+.showMenu #mainContainer{
+    pointer-events : none;
+}
             
             .leftPanel.showMenu{
             }
@@ -369,9 +373,9 @@
                 if(username!='Vikas' || password!='vikas'){
                 errorMessage.style.display = 'block';
                 //   return;
-                }else{
-                errorMessage.style.display = 'none';
                 }
+                errorMessage.style.display = 'none';
+                
                 var d = document.getElementById("mainContainer");
                 
                 //d.className = "navigateToDetail";
@@ -396,11 +400,11 @@
                                     
                     if($(".rightPanel").hasClass('showMenu')){
                     $(".rightPanel").removeClass('showMenu');
-                    $('#mainContainer').css('pointer-events','all');
+                    //$('#mainContainer').css('pointer-events','all');
                     }
                     else{
                     $(".rightPanel").addClass('showMenu');
-                    $('#mainContainer').css('pointer-events','none');
+                   // $('#mainContainer').css('pointer-events','none');
                     
                     }
                                     
