@@ -331,8 +331,8 @@
         </div>
         
         <script>
-            var $ = $;
-            $(function(){
+            $.noConflict();
+            jQuery(document ).ready(function($){
                        if(!window.$){
                        console.log('JQuery not loaded');
                        }
