@@ -332,6 +332,9 @@
         
         <script>
             setTimeout(function(){
+                       if(!window.$){
+                       console.log('JQuery not loaded');
+                       }
             $('body').on('touchmove', function(event){
                          event.preventDefault();
             });
