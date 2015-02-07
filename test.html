@@ -1,6 +1,7 @@
 <html>
     <head>
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
 <style>
                 *{
                     font-family : helvetica;
@@ -328,9 +329,9 @@
                 </div>
             </div>
         </div>
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
-
+        
         <script>
+            setTimeout(function(){
             $('body').on('touchmove', function(event){
                          event.preventDefault();
             });
@@ -407,7 +408,7 @@
                     
                     errorMessage.style.display = 'none';
                                 
-               });
+                                });},1000);
             </script>
     </body>
 </html>
