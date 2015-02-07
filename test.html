@@ -1,0 +1,428 @@
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+            <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+            <style>
+                *{
+                    font-family : helvetica;
+                }
+            #loginPage{
+                padding : 10px;
+                padding-top : 10px;
+                width:100%;
+                box-sizing : border-box;
+                /*display : none;*/
+            }
+            
+            .username, .password{
+                margin-top : 30px;
+                width : 100%;
+            }
+            
+            .username input, .password input{
+                width : 100%;
+                height : 40px;
+                font-size : 13px;
+            }
+            
+            .header{
+                margin-top : 20px;
+                text-align : left;
+                background-color : #ccc;
+                padding-top : 10px;
+                font-weight : bold;
+                font-size : 15px;
+            }
+            
+            .Submit{
+                margin-top : 30px;
+                background-color : blue;
+                text-align : center;
+                padding : 10px;
+                border-radius : 5px;
+                color : white;
+            }
+            
+            .citilogo{
+                background-image: url("citi.png");
+                width : 80px;
+                height : 50px;
+                background-size : 80px 50px;
+                //background-color : #ccc;
+            }
+            
+            .forgot{
+                margin-top : 20px;
+                text-decoration : underline;
+            }
+            
+            body {
+                background-color : #ccc;
+                margin : 0px;
+                overflow : hidden;
+                height : 100%;
+                width:100%;
+            }
+            
+            #detailPage{
+                padding : 10px;
+                padding-top : 10px;
+                width:100%;
+                box-sizing : border-box;
+                
+                display : none;
+            }
+            
+            .balanceSection{
+                margin-top : 30px;
+                padding : 20px;
+                padding-top : 20px;
+                background-color : #fff;
+                height : 150px;
+                border-radius : 10px;
+                font-size : 40px;
+                font-weight : bold
+            }
+            
+            .activitySection{
+                margin-top : 20px;
+                //padding : 20px;
+                // padding-top : 10px;
+                background-color : #fff;
+                // height : 150px;
+                border-radius : 10px;
+                //font-size : 40px;
+                // font-weight : bold
+            }
+            
+            .logoHeader{
+                // margin-top : 25px;
+                font-size : 20px;
+                color : #333
+            }
+            
+            #mainContainer{
+                display : -webkit-box;
+                overflow : auto;
+                height : 90%;
+                -webkit-overflow-scrolling: touch;
+            }
+            
+            @-webkit-keyframes mymove {
+                from {-webkit-transform : translateX(0%)}
+                to {-webkit-transform : translateX(-100%);}
+            }
+            
+            .navigateToDetail{
+                -webkit-animation : mymove 0.5s;
+                -webkit-transform : translateX(-100%);
+                overflow : initial;
+            }
+            
+            .row{
+                border-bottom : solid;
+                border-bottom-color : #ccc;
+                border-bottom-width : 1px;
+                padding : 10px
+            }
+            
+            .row:last-of-type{
+                border-bottom : none;
+                border-bottom-color : #ccc;
+                padding : 10px
+            }
+            
+            .row>div{
+                //margin : 20px 20px;
+            }
+            
+            .keyName{
+                font-weight : bold;
+            }
+            
+            .Fee, .Amount{
+                text-align : right;
+                width : 50%;
+                display : block;
+            }
+            
+            .ActDate, .Type{
+                text-align : left;
+                width : 50%;
+                display : block;
+            }
+            
+            .Fee, .ActDate{
+                font-weight : bold;
+            }
+            
+            .parentDIV{
+                display : -webkit-box;
+            }
+            
+            #errorMessage{
+                color : red;
+                margin-top : 10px;
+                display : none;
+            }
+            
+            #mainHeader{
+                background-color : #666;
+                width : 100%;
+                height : 44px;
+                text-align : center;
+                font-weight : bold;
+                line-height : 44px;
+                font-size : 20px;
+                color : #eee;
+                box-shadow: 0px 7px 5px 0px #888888;
+                //display : -webkit-box;
+            }
+            
+            .menuButton{
+                
+                background-image: url("menu.png");
+                width : 50px;
+                height : 44px;
+                //padding-left : 5px;
+                //padding-top : 5px;
+                box-sizing : border-box;
+                background-size : 40px 34px;
+                background-position : 5px 5px;
+                background-repeat: no-repeat;
+                border-radius : 2px;
+                display : none;
+                float : left;
+                z-index :10;
+                position: absolute;
+                
+                // box-shadow: 2px 2px 2px 0px #888888;
+            }
+            
+            .headerText{
+                text-align : center;
+                width : 100%;
+                font-size : 17px;
+                float:left;
+            }
+            
+            .leftPanel{
+                height : 100%;
+                width : 270px;
+                background-color : #ddd;
+                float : left;
+                //display : none;
+            }
+            
+            .rightPanel{
+                
+                float : left;
+                width : 100%;
+                z-index : 1;
+                position : absolute;
+                background-color : #ccc;
+                height : 100%;
+                -webkit-transition : -webkit-transform 0.2s;
+                
+            }
+            
+            .rightPanel.showMenu{
+                box-shadow: 10px 0 10px -10px #333 inset;
+                -webkit-transform : translateX(270px);
+            }
+            
+            .leftPanel.showMenu{
+                // display:block;
+            }
+            
+            .menuList .row{
+                font-size : 20px;
+                font-weight : bold;
+            }
+            .menuList .row:active{
+                background-color : gray;
+            }
+            html { overflow: hidden; }
+            html, body {
+                // max-width: 100%;
+                // overflow-x: hidden;
+            }
+            
+            
+                </style>
+            </head>
+    <body>
+        <div class='leftPanel'>
+            <div class='menuList'>
+                <div class='row'></div>
+                <div class='row'>Home</div>
+                <div class='row'>FAQ</div>
+                <div class='row'>Contact Us</div>
+                <div class='row'>Terms &amp; Conditions</div>
+                <div class='row logout'>Log out</div>
+            </div>
+        </div>
+        <div class='rightPanel'>
+            <div id='mainHeader'><div class='menuButton'></div><div class='headerText'>Access &amp; Manage Your Accounts</div></div>
+            
+            <div id='mainContainer'>
+                <div id='loginPage'>
+                    <div class='logoHeader'>Prepaid Services</div>
+                    <div class='citilogo'></div>
+                    <!--<div class='header'>Access &amp; Manage Your Accounts</div>-->
+                    <div id='errorMessage'>Please enter valid credentials</div>
+                    <div class="username">
+                        <input id="username" type="text" placeholder="User Name">
+                            </div>
+                    <div class="password">
+                        <input id="password" type="password" placeholder="Password">
+                            </div>
+                    <div class="Submit">Log In</div>
+                    <div class='forgot'>Forgot User Name</div>
+                    <div class='forgot'>Forgot Password</div>
+                </div>
+                
+                <div id='detailPage'>
+                    <div class='logoHeader'>Prepaid Services</div>
+                    <div class='citilogo'></div>
+                    <div class='balanceSection'>
+                        <div>Balance:</div>
+                        <div style='margin-top:20px'>USD $10000</div>
+                    </div>
+                    <div class='header'>Activities</div>
+                    <div class='activitySection'>
+                        <div class='row'>
+                            <div class='parentDIV'><div class='ActDate'>15-Jun-2010</div><div class='Fee'>$100</div></div>
+                            <div class='parentDIV'><div class='Type'>Fee</div><div class='Amount'>$1000</div></div>
+                            <div class='parentDIV'><div class='Memo'>Management Adjustments</div></div>
+                        </div>
+                        <div class='row'>
+                            <div class='parentDIV'><div class='ActDate'>15-Jun-2010</div><div class='Fee'>$100</div></div>
+                            <div class='parentDIV'><div class='Type'>Fee</div><div class='Amount'>$1000</div></div>
+                            <div class='parentDIV'><div class='Memo'>Management Adjustments</div></div>
+                        </div>
+                        <div class='row'>
+                            <div class='parentDIV'><div class='ActDate'>15-Jun-2010</div><div class='Fee'>$100</div></div>
+                            <div class='parentDIV'><div class='Type'>Fee</div><div class='Amount'>$1000</div></div>
+                            <div class='parentDIV'><div class='Memo'>Management Adjustments</div></div>
+                        </div>
+                        <div class='row'>
+                            <div class='parentDIV'><div class='ActDate'>15-Jun-2010</div><div class='Fee'>$100</div></div>
+                            <div class='parentDIV'><div class='Type'>Fee</div><div class='Amount'>$1000</div></div>
+                            <div class='parentDIV'><div class='Memo'>Management Adjustments</div></div>
+                        </div>
+                        <div class='row'>
+                            <div class='parentDIV'><div class='ActDate'>15-Jun-2010</div><div class='Fee'>$100</div></div>
+                            <div class='parentDIV'><div class='Type'>Fee</div><div class='Amount'>$1000</div></div>
+                            <div class='parentDIV'><div class='Memo'>Management Adjustments</div></div>
+                        </div>
+                        <div class='row'>
+                            <div class='parentDIV'><div class='ActDate'>15-Jun-2010</div><div class='Fee'>$100</div></div>
+                            <div class='parentDIV'><div class='Type'>Fee</div><div class='Amount'>$1000</div></div>
+                            <div class='parentDIV'><div class='Memo'>Management Adjustments</div></div>
+                        </div>
+                        <div class='row'>
+                            <div class='parentDIV'><div class='ActDate'>15-Jun-2010</div><div class='Fee'>$100</div></div>
+                            <div class='parentDIV'><div class='Type'>Fee</div><div class='Amount'>$1000</div></div>
+                            <div class='parentDIV'><div class='Memo'>Management Adjustments</div></div>
+                        </div>
+                        <div class='row'>
+                            <div class='parentDIV'><div class='ActDate'>15-Jun-2010</div><div class='Fee'>$100</div></div>
+                            <div class='parentDIV'><div class='Type'>Fee</div><div class='Amount'>$1000</div></div>
+                            <div class='parentDIV'><div class='Memo'>Management Adjustments</div></div>
+                        </div>
+                        <div class='row'>
+                            <div class='parentDIV'><div class='ActDate'>15-Jun-2010</div><div class='Fee'>$100</div></div>
+                            <div class='parentDIV'><div class='Type'>Fee</div><div class='Amount'>$1000</div></div>
+                            <div class='parentDIV'><div class='Memo'>Management Adjustments</div></div>
+                        </div>
+                        <div class='row'>
+                            <div class='parentDIV'><div class='ActDate'>15-Jun-2010</div><div class='Fee'>$100</div></div>
+                            <div class='parentDIV'><div class='Type'>Fee</div><div class='Amount'>$1000</div></div>
+                            <div class='parentDIV'><div class='Memo'>Management Adjustments</div></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <script>
+            $('body').on('touchmove', function(event){
+                         event.preventDefault();
+            });
+            $('#mainContainer').on('touchmove', function(e) {
+                                   e.stopPropagation();
+            });
+           var div = document.getElementsByClassName('Submit')[0];
+           
+           div.addEventListener('click', function (event) {
+                var username = document.getElementById("username").value;
+                var password = document.getElementById("password").value;
+                var errorMessage = document.getElementById("errorMessage");
+                
+                if(username!='Vikas' || password!='vikas'){
+                errorMessage.style.display = 'block';
+                //   return;
+                }else{
+                errorMessage.style.display = 'none';
+                }
+                var d = document.getElementById("mainContainer");
+                
+                //d.className = "navigateToDetail";
+                var loginPage = document.getElementById("loginPage");
+                loginPage.style.display = 'none';
+                
+                
+                var header = document.querySelector("#mainHeader .headerText");
+                header.innerText = "Account Details";
+                
+                var menuButton = document.querySelector("#mainHeader .menuButton");
+                menuButton.style.display = 'block';
+                
+                var detailPage = document.getElementById("detailPage");
+                detailPage.style.display = 'block';
+                                
+            });
+                                
+             var menuB = document.getElementsByClassName('menuButton')[0];
+             
+             menuB.addEventListener('click', function (event) {
+                                    
+                                    
+                    if($(".rightPanel").hasClass('showMenu')){
+                    $(".rightPanel").removeClass('showMenu');
+                    $('#mainContainer').css('pointer-events','all');
+                    }
+                    else{
+                    $(".rightPanel").addClass('showMenu');
+                    $('#mainContainer').css('pointer-events','none');
+                    
+                    }
+                                    
+                                    
+              });
+                                
+                $('.logout').on('click',function(e){
+                    $(".rightPanel").removeClass('showMenu');
+                    $('#mainContainer').css('pointer-events','all');
+                    
+                    
+                    var loginPage = document.getElementById("loginPage");
+                    loginPage.style.display = 'block';
+                    
+                    
+                    var header = document.querySelector("#mainHeader .headerText");
+                    header.innerText = "Access & Manage Your Accounts";
+                    
+                    var menuButton = document.querySelector("#mainHeader .menuButton");
+                    menuButton.style.display = 'none';
+                    
+                    var detailPage = document.getElementById("detailPage");
+                    detailPage.style.display = 'none';
+                    
+                    errorMessage.style.display = 'none';
+                                
+               });
+            </script>
+    </body>
+</html>
