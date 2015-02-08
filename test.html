@@ -797,6 +797,7 @@
                                     $('.menuList .row').on('click',function(e){
                                                  $('.afterLogin').hide();
                                                  var idView = $(this).data('view');
+                                                           if(!idView) return;
                                                  $('#'+idView).show();
                                                  
                                                  $(".rightPanel").removeClass('showMenu');
