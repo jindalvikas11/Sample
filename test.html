@@ -151,7 +151,11 @@
             .Fee, .ActDate{
                 font-weight : bold;
             }
-            
+
+            .question{
+                font-weight : bold;
+            }
+
             .parentDIV{
                 display : -webkit-box;
             }
@@ -216,7 +220,19 @@
                 -webkit-transition : -webkit-transform 0.2s;
                 
             }
-            
+
+    #faqPage{
+        padding : 10px;
+        padding-top : 10px;
+        width:100%;
+        box-sizing : border-box;
+    }
+
+.tableView{
+    background-color : #fff;
+    border-radius : 10px;
+}
+
             .rightPanel.showMenu{
                 box-shadow: 10px 0 10px -10px #333 inset;
                 -webkit-transform : translateX(270px);
@@ -676,7 +692,25 @@
                                                             
                 </div>
                 </div>
-                <div id='faqPage' class='afterLogin'>Frequently Asked Questions
+                <div id='faqPage' class='afterLogin'>
+                    <div class='tableView'>
+                    <div class='row'>
+                        <div class='question'>Where can I use this card?</div>
+                        <div class='answer'>You can use your card to purchase goods and services at any merchant that accepts signature based MasterCard® or Visa® debit cards (depending on the brand presented on the front of your card).</div>
+                    </div>
+                    <div class='row'>
+                        <div class='question'>Why is the word "Debit" on the front of the card?</div>
+                        <div class='answer'>In response to new Visa and MasterCard regulations, Issuers are required to label non-credit products with the term “Debit” after January 1, 2004. Although your card may have the word debit on it, please remember to push credit and sign for purchases to indicate you authorize your transaction.</div>
+                </div>
+                <div class='row'>
+                    <div class='question'>Can I withdraw cash?</div>
+                    <div class='answer'>Your card is a stored value card. You can use it to purchase goods and services, but there is no cash access. You will not be able to use your card for cash equivalent transactions.</div>
+            </div>
+            <div class='row'>
+                <div class='question'>How do I pay for the card?</div>
+                <div class='answer'>If your card is assessed an annual or monthly fee, it will automatically be deducted from your balance. For a complete list of fees associated with your card, please refer to the Disclosures and Fees page.</div>
+        </div>
+                    </div>
                 </div>
                 <div id='contactUsPage' class='afterLogin'>Contact Us
                 </div>
