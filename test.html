@@ -831,9 +831,10 @@
                                                   });*/
                                     
                                     $('.menuList .row').on('click',function(e){
-                                                 $('.afterLogin').hide();
                                                  var idView = $(this).data('view');
                                                            if(!idView) return;
+                                                           $('.afterLogin').hide();
+
                                                  $('#'+idView).show();
                                                  
                                                  $(".rightPanel").removeClass('showMenu');
