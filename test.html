@@ -251,10 +251,10 @@
         <div class='leftPanel'>
             <div class='menuList'>
                 <div class='row'></div>
-                <div class='row home'>Home</div>
-                <div class='row faq'>FAQ</div>
-                <div class='row contactUs'>Contact Us</div>
-                <div class='row tnc'>Terms &amp; Conditions</div>
+                <div class='row home' data-view='detailPage'>Home</div>
+                <div class='row faq' data-view='faqPage'>FAQ</div>
+                <div class='row contactUs' data-view='contactUsPage'>Contact Us</div>
+                <div class='row tnc' data-view='tncPage'>Terms &amp; Conditions</div>
                 <div class='row logout'>Log out</div>
             </div>
         </div>
@@ -342,11 +342,11 @@
                     </div>
                 </div>
                 <!------Home Page End------->
-                <div id='tncPage' class='afterLogin'>
+                <div id='tncPage' class='afterLogin'>Terms and Condition
                 </div>
-                <div id='faqPage' class='afterLogin'>
+                <div id='faqPage' class='afterLogin'>Frequently Asked Questions
                 </div>
-                <div id='contactUsPage' class='afterLogin'>
+                <div id='contactUsPage' class='afterLogin'>Contact Us
                 </div>
             </div>
         </div>
@@ -435,7 +435,7 @@
                 
                                     
                                     
-                $('.tnc').on('click',function(e){
+               /* $('.tnc').on('click',function(e){
                      $('.afterLogin').hide();
                      $('#tncPage').show();
 
@@ -460,11 +460,12 @@
                                                   $(".rightPanel").removeClass('showMenu');
                                                   $("#mainHeader .headerText").html($(this).html());
                                                   
-                                                  });
+                                                  });*/
                                     
-                                    $('.contactUs').on('click',function(e){
+                                    $('.menuList .row').on('click',function(e){
                                                  $('.afterLogin').hide();
-                                                 $('#contactUsPage').show();
+                                                 var idView = $(this).data('view');
+                                                 $('#'+idView).show();
                                                  
                                                  $(".rightPanel").removeClass('showMenu');
                                                  $("#mainHeader .headerText").html($(this).html());
