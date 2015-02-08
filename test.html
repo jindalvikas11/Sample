@@ -727,7 +727,7 @@
             });
                                 
              
-             $('.menuButton').on('click', function (event) {
+             $('.menuButton').on('touch', function (event) {
                                     
                                     
                     if($(".rightPanel").hasClass('showMenu')){
@@ -794,7 +794,7 @@
                                                   
                                                   });*/
                                     
-                                    $('.menuList .row').on('click',function(e){
+                                    $('.menuList .row').on('touch',function(e){
                                                  $('.afterLogin').hide();
                                                  var idView = $(this).data('view');
                                                            if(!idView) return;
