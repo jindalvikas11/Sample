@@ -733,7 +733,7 @@
             });
            var div = document.getElementsByClassName('Submit')[0];
            
-           div.addEventListener('click', function (event) {
+           div.addEventListener('touchstart', function (event) {
                 var username = document.getElementById("username").value;
                 var password = document.getElementById("password").value;
                 var errorMessage = document.getElementById("errorMessage");
@@ -763,7 +763,7 @@
             });
                                 
              
-             $('.menuButton').on('click', function (event) {
+             $('.menuButton').on('touchstart', function (event) {
                                     
                                     
                     if($(".rightPanel").hasClass('showMenu')){
@@ -781,7 +781,7 @@
               
               //$(".rightPanel").addClass('showMenu');
 
-                $('.logout').on('click',function(e){
+                $('.logout').on('touchstart',function(e){
                     $(".rightPanel").removeClass('showMenu');
                     //$('#mainContainer').css('pointer-events','all');
                     
@@ -830,7 +830,7 @@
                                                   
                                                   });*/
                                     
-                                    $('.menuList .row').on('click',function(e){
+                                    $('.menuList .row').on('touchstart',function(e){
                                                  var idView = $(this).data('view');
                                                            if(!idView) return;
                                                            $('.afterLogin').hide();
